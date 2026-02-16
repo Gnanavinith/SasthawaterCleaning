@@ -27,8 +27,8 @@ const Header = () => {
         >
           <Droplets className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
 
-          <div className="leading-tight">
-            <p className="font-heading font-bold text-base sm:text-lg whitespace-nowrap">
+          <div className="leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <p className="font-bold text-base sm:text-lg whitespace-nowrap">
               SASTHA
             </p>
             <p className="text-[10px] sm:text-xs text-primary whitespace-nowrap">
@@ -38,7 +38,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -93,6 +93,7 @@ const Header = () => {
                     ? "text-primary bg-muted"
                     : "text-foreground hover:bg-muted"
                 }`}
+                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 {link.label}
               </Link>
@@ -102,12 +103,13 @@ const Header = () => {
               <a
                 href="tel:+916374341251"
                 className="flex items-center gap-2 text-sm font-medium text-foreground px-2"
+                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 <Phone className="h-4 w-4 text-primary" />
                 63743 41251
               </a>
 
-              <Button asChild className="w-full">
+              <Button asChild className="w-full" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 <Link to="/contact" onClick={() => setMobileOpen(false)}>
                   Book Now
                 </Link>

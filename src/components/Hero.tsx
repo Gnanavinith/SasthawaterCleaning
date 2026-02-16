@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Droplets, Phone, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Droplets, Phone, ArrowRight, ChevronLeft, ChevronRight, ImageOff } from "lucide-react";
 
 const slides = [
   {
@@ -23,6 +23,8 @@ const slides = [
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(Array(slides.length).fill(false));
+  const [imageError, setImageError] = useState(Array(slides.length).fill(false));
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,6 +32,27 @@ const Hero = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  const handleImageLoad = (index) => {
+    setImageLoaded(prev => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  };
+
+  const handleImageError = (index) => {
+    setImageError(prev => {
+      const newError = [...prev];
+      newError[index] = true;
+      return newError;
+    });
+    setImageLoaded(prev => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true; // Mark as loaded even if errored
+      return newLoaded;
+    });
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -50,11 +73,39 @@ const Hero = () => {
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
+            {/* Image with loading skeleton */}
+            <div className="relative w-full h-full">
+              {/* Skeleton loader */}
+              {!imageLoaded[index] && (
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 animate-pulse">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+                </div>
+              )}
+              
+              {/* Error fallback */}
+              {imageError[index] && (
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-cyan-900/80 flex items-center justify-center">
+                  <div className="text-center text-white/80">
+                    <ImageOff className="h-16 w-16 mx-auto mb-4 text-white/60" />
+                    <p className="text-lg font-medium">Image unavailable</p>
+                    <p className="text-sm opacity-75">Professional water tank cleaning services</p>
+                  </div>
+                </div>
+              )}
+              
+              {/* Actual image */}
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className={`w-full h-full object-cover transition-opacity duration-700 ${
+                  imageLoaded[index] && !imageError[index] ? "opacity-100" : "opacity-0"
+                }`}
+                onLoad={() => handleImageLoad(index)}
+                onError={() => handleImageError(index)}
+              />
+            </div>
+            
+            {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/85 to-slate-900/95" />
           </div>
         ))}
@@ -71,12 +122,12 @@ const Hero = () => {
           <div className="max-w-3xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm text-blue-100 border border-blue-400/30 rounded-full px-4 py-1.5 text-sm font-medium mb-6 animate-in fade-in slide-in-from-top duration-700">
-              <Droplets className="h-4 w-4" />
+              <Droplets className="h-4 w  -4" />
               Professional Water Tank Cleaning
             </div>
 
             {/* Dynamic Title */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 animate-in fade-in slide-in-from-top duration-700 delay-100">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-in fade-in slide-in-from-top duration-700 delay-100" style={{ fontFamily: 'Lora, serif' }}>
               {slides[currentSlide].title.split("Clean Tank").map((part, i, arr) => (
                 <span key={i}>
                   {part}
@@ -90,11 +141,11 @@ const Hero = () => {
             </h1>
 
             {/* Dynamic Subtitle */}
-            <p className="text-xl md:text-2xl text-blue-100 font-semibold mb-4 animate-in fade-in slide-in-from-top duration-700 delay-200">
+            <p className="text-xl md:text-2xl text-blue-100 font-medium mb-4 animate-in fade-in slide-in-from-top duration-700 delay-200" style={{ fontFamily: 'Lora, serif' }}>
               {slides[currentSlide].subtitle}
             </p>
 
-            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto animate-in fade-in slide-in-from-top duration-700 delay-300">
+            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto animate-in fade-in slide-in-from-top duration-700 delay-300" style={{ fontFamily: 'Lora, serif' }}>
               Sastha Tank Cleaning provides safe, professional water tank cleaning services across Coimbatore and all of Tamil Nadu. Protect your family's health today.
             </p>
 
