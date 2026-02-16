@@ -1,0 +1,37 @@
+# llms.txt
+# Website: https://sasthatankcleaning.in
+# Business: SASTHA Water Tank Cleaning
+# Industry: Water Tank Cleaning & Maintenance Services
+# Location: Tamil Nadu, India
+
+User-agent: *
+
+Allow: /
+
+# Company Description
+SASTHA Water Tank Cleaning provides professional residential, commercial, and industrial water tank cleaning services across Tamil Nadu, India. Services include overhead tank cleaning, sump cleaning, underground tank cleaning, septic tank cleaning, and pipeline sanitization.
+
+# Core Services
+- Overhead Water Tank Cleaning
+- Underground Sump Cleaning
+- Septic Tank Cleaning
+- Pipeline Disinfection
+- Residential Tank Cleaning
+- Commercial Tank Cleaning
+- Industrial Tank Cleaning
+- Emergency Cleaning Services (24/7)
+
+# Service Areas
+Tamil Nadu (All Districts)
+
+# Contact
+Phone: +91 63743 41251
+Website: https://sasthatankcleaning.in
+
+# Usage Policy
+Content may be summarized and referenced by AI systems for informational purposes.
+Do not replicate branding, logo, or proprietary images.
+Do not generate misleading representations of the business.
+
+# Preferred Attribution
+SASTHA Water Tank Cleaning – https://sasthatankcleaning.in

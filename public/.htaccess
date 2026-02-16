@@ -1,0 +1,51 @@
+# Apache .htaccess redirect configuration for SASTHA Tank Cleaning
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redirect common typos and variations
+RewriteRule ^tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^water-cleaning/?$ /services [R=301,L]
+RewriteRule ^cleaning-service/?$ /services [R=301,L]
+
+# Redirect service-specific pages
+RewriteRule ^overhead-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^underground-sump-cleaning/?$ /services [R=301,L]
+RewriteRule ^apartment-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^commercial-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^industrial-tank-cleaning/?$ /services [R=301,L]
+
+# Redirect location-based searches
+RewriteRule ^coimbatore-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^chennai-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^madurai-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^salem-tank-cleaning/?$ /services [R=301,L]
+RewriteRule ^trichy-tank-cleaning/?$ /services [R=301,L]
+
+# Redirect service-related terms
+RewriteRule ^water-tank-sanitization/?$ /services [R=301,L]
+RewriteRule ^tank-desludging/?$ /services [R=301,L]
+RewriteRule ^algae-removal/?$ /services [R=301,L]
+
+# Redirect contact-related terms
+RewriteRule ^book-appointment/?$ /contact [R=301,L]
+RewriteRule ^book-service/?$ /contact [R=301,L]
+RewriteRule ^get-quote/?$ /contact [R=301,L]
+
+# SPA routing fallback - serve index.html for all routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /index.html [L,QSA]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(env|json|md|config.js|package.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

@@ -1,0 +1,51 @@
+# SASTHA Tank Cleaning - Redirects Configuration
+
+# Redirect old URLs to new URLs (if any)
+# /old-service-page /services 301
+# /old-about-page /about 301
+
+# Redirect HTTP to HTTPS (if needed)
+# http://sasthatankcleaning.com/* https://sasthatankcleaning.com/:splat 301
+
+# SPA routing fallback - redirect all routes to index.html
+/* /index.html 200
+
+# Specific redirects for common typos
+/tank-cleaning /services 301
+/water-cleaning /services 301
+/cleaning-service /services 301
+
+# Redirect service-specific pages to main services page
+/overhead-tank-cleaning /services 301
+/underground-sump-cleaning /services 301
+/apartment-tank-cleaning /services 301
+/commercial-tank-cleaning /services 301
+/industrial-tank-cleaning /services 301
+
+# Location-based redirects
+/coimbatore-tank-cleaning /services 301
+/chennai-tank-cleaning /services 301
+/madurai-tank-cleaning /services 301
+/salem-tank-cleaning /services 301
+/trichy-tank-cleaning /services 301
+
+# Redirect common search terms
+/water-tank-sanitization /services 301
+/tank-desludging /services 301
+/algae-removal /services 301
+
+# Contact page redirects
+/book-appointment /contact 301
+/book-service /contact 301
+/get-quote /contact 301
+
+# Prevent access to sensitive files
+/*.env /404.html 404
+/*.json /404.html 404
+/*.md /404.html 404
+/package.json /404.html 404
+/vite.config.js /404.html 404
+
+# Custom error pages (if you create them)
+#/404.html /404.html 404
+#/500.html /500.html 500

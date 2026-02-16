@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, MapPin, Mail, MessageCircle, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 const serviceTypes = [
   "Overhead Tank Cleaning",
@@ -40,12 +41,19 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-16 lg:py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">Book a Cleaning</h1>
-          <p className="text-lg text-muted-foreground">Fill the form below and we'll get back to you within hours</p>
-        </div>
+    <>
+      <SEO 
+        title="Contact Us"
+        description="Contact SASTHA Tank Cleaning for professional water tank cleaning services in Tamil Nadu. Book your tank cleaning appointment online."
+        keywords="contact SASTHA, book tank cleaning, water tank cleaning contact, Tamil Nadu tank cleaning, tank cleaning appointment, overhead tank service, sump cleaning contact"
+        pathname="/contact"
+      />
+      <section className="py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">Book a Cleaning</h1>
+            <p className="text-lg text-muted-foreground">Fill the form below and we'll get back to you within hours</p>
+          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Form */}
@@ -148,20 +156,26 @@ const Contact = () => {
               </a>
             </Button>
 
-            {/* Map placeholder */}
+            {/* Google Maps Embed */}
             <Card className="overflow-hidden">
-              <div className="aspect-square bg-muted flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="h-10 w-10 mx-auto mb-2 opacity-40" />
-                  <p className="text-sm">Google Maps</p>
-                  <p className="text-xs">Tamil Nadu, India</p>
-                </div>
+              <div className="aspect-square">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125392.02148123456!2d79.928805!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f5e4e4e4e4e5%3A0x1234567890abcdef!2sTamil+Nadu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="SASTHA Water Tank Cleaning Service Areas"
+                ></iframe>
               </div>
             </Card>
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 };
 

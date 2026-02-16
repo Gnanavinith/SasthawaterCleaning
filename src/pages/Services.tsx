@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Droplets, Home, Building2, Factory, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const services = [
   {
@@ -46,6 +47,12 @@ const steps = [
 
 const Services = () => (
   <>
+    <SEO 
+      title="Services"
+      description="Professional water tank cleaning services in Tamil Nadu. Overhead tank cleaning, underground sump cleaning, apartment services, commercial cleaning and industrial solutions."
+      keywords="overhead tank cleaning, underground sump cleaning, apartment tank cleaning, commercial tank cleaning, industrial tank cleaning, water tank sanitization, water storage cleaning, Tamil Nadu tank cleaning"
+      pathname="/services"
+    />
     <section className="py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-14">

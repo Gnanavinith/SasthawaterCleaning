@@ -1,4 +1,5 @@
 import { ShieldCheck, Users, Award, Target, MapPin } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const values = [
   { icon: ShieldCheck, title: "Safety First", desc: "We use eco-friendly, WHO-recommended cleaning agents that are safe for your family." },
@@ -15,6 +16,12 @@ const serviceAreas = [
 
 const About = () => (
   <>
+    <SEO 
+      title="About Us"
+      description="About SASTHA Tank Cleaning - Your trusted partner for professional water tank cleaning across Tamil Nadu since day one. Learn about our values and service areas."
+      keywords="about SASTHA, water tank cleaning company, professional tank cleaning, water hygiene experts, Tamil Nadu water services, tank cleaning team"
+      pathname="/about"
+    />
     <section className="py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 text-center">About SASTHA Tank Cleaning</h1>
